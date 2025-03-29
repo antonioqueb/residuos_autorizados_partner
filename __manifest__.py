@@ -6,6 +6,7 @@
     "category": "Contacts",
     "depends": ["base"],
     "data": [
+    "security/ir.model.access.csv",
     "data/catalogo_residuos_data.xml",
     "views/catalogo_residuos_view.xml",
     "views/res_partner_view.xml",
