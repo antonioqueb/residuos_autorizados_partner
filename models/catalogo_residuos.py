@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields, api
 
 class CatalogoResiduo(models.Model):
     _name = "residuo.catalogo"
@@ -9,7 +9,7 @@ class CatalogoResiduo(models.Model):
     descripcion = fields.Char(string="Descripción", required=True)
     nombre_clave = fields.Char(compute="_compute_nombre_clave", store=True)
 
-    @fields.depends("clave", "descripcion")
+    @api.depends("clave", "descripcion")
     def _compute_nombre_clave(self):
         for rec in self:
             rec.nombre_clave = f"{rec.clave} - {rec.descripcion}"
