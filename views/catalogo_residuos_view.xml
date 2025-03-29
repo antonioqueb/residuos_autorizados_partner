@@ -1,29 +1,31 @@
 <odoo>
-    <!-- Acción primero -->
+    <!-- Acción -->
     <record id="action_catalogo_residuos" model="ir.actions.act_window">
         <field name="name">Catálogo de Residuos</field>
         <field name="res_model">residuo.catalogo</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
-    <!-- Menús después de acción -->
+    <!-- Menús -->
     <menuitem id="menu_residuo_catalogo_root" name="Residuos" sequence="90"/>
-    <menuitem id="menu_residuo_catalogo" name="Catálogo de Residuos"
+    <menuitem id="menu_residuo_catalogo"
+              name="Catálogo de Residuos"
               parent="menu_residuo_catalogo_root"
               action="action_catalogo_residuos"/>
 
-    <!-- Vistas después de menús -->
-    <record id="view_catalogo_residuo_tree" model="ir.ui.view">
-        <field name="name">residuo.catalogo.tree</field>
+    <!-- Vista tipo Lista (antes: tree) -->
+    <record id="view_catalogo_residuo_list" model="ir.ui.view">
+        <field name="name">residuo.catalogo.list</field>
         <field name="model">residuo.catalogo</field>
         <field name="arch" type="xml">
-            <tree string="Catálogo de Residuos">
+            <list string="Catálogo de Residuos">
                 <field name="clave"/>
                 <field name="descripcion"/>
-            </tree>
+            </list>
         </field>
     </record>
 
+    <!-- Vista tipo Formulario -->
     <record id="view_catalogo_residuo_form" model="ir.ui.view">
         <field name="name">residuo.catalogo.form</field>
         <field name="model">residuo.catalogo</field>
