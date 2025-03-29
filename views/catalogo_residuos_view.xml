@@ -1,0 +1,39 @@
+<odoo>
+    <!-- Acción primero -->
+    <record id="action_catalogo_residuos" model="ir.actions.act_window">
+        <field name="name">Catálogo de Residuos</field>
+        <field name="res_model">residuo.catalogo</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menús después de acción -->
+    <menuitem id="menu_residuo_catalogo_root" name="Residuos" sequence="90"/>
+    <menuitem id="menu_residuo_catalogo" name="Catálogo de Residuos"
+              parent="menu_residuo_catalogo_root"
+              action="action_catalogo_residuos"/>
+
+    <!-- Vistas después de menús -->
+    <record id="view_catalogo_residuo_tree" model="ir.ui.view">
+        <field name="name">residuo.catalogo.tree</field>
+        <field name="model">residuo.catalogo</field>
+        <field name="arch" type="xml">
+            <tree string="Catálogo de Residuos">
+                <field name="clave"/>
+                <field name="descripcion"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_catalogo_residuo_form" model="ir.ui.view">
+        <field name="name">residuo.catalogo.form</field>
+        <field name="model">residuo.catalogo</field>
+        <field name="arch" type="xml">
+            <form string="Residuo">
+                <group>
+                    <field name="clave"/>
+                    <field name="descripcion"/>
+                </group>
+            </form>
+        </field>
+    </record>
+</odoo>
